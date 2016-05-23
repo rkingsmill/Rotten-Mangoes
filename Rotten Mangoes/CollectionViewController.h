@@ -1,5 +1,5 @@
 //
-//  MasterViewController.h
+//  CollectionViewController.h
 //  Rotten Mangoes
 //
 //  Created by Rosalyn Kingsmill on 2016-05-23.
@@ -7,13 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @class DetailViewController;
 
-@interface MasterViewController : UITableViewController
-
+@interface CollectionViewController : UICollectionViewController
 @property (strong, nonatomic) DetailViewController *detailViewController;
-
-
 @end
-

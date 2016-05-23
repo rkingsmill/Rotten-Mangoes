@@ -16,19 +16,42 @@
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
+- (void)setMovie:(Movie*)movie {
+    if (movie != _movie) {
+        _movie = movie;
             
         // Update the view.
-        [self configureView];
+        //[self configureView];
     }
 }
 
 - (void)configureView {
     // Update the user interface for the detail item.
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+    if (self.movie) {
+        self.detailDescriptionLabel.text = self.movie.synopsis;
+        self.detailTitleLabel.text = self.movie.title;
+        NSString *year = [self.movie.year stringValue];
+        self.detailYearLabel.text = year;
+        self.detailRatingslabel.text = self.movie.rating;
+        
+        NSURL *url = [NSURL URLWithString:self.movie.movieImage];
+        
+        NSURLRequest* request = [NSURLRequest requestWithURL:url];
+        
+        //NSData *data = [NSData dataWithContentsOfURL:url];
+        
+        NSURLSession *sharedSession = [NSURLSession sharedSession];
+        
+        NSURLSessionDataTask *apiTask = [sharedSession dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.detailImageView.image = [UIImage imageWithData:data];
+            });
+        }];
+        
+        [apiTask resume];
+
+        
     }
 }
 
