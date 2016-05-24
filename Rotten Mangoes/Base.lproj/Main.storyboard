@@ -67,7 +67,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1B-5R-eEK">
-                                <rect key="frame" x="271" y="558" width="57" height="30"/>
+                                <rect key="frame" x="272" y="558" width="57" height="30"/>
                                 <state key="normal" title="Reviews"/>
                                 <connections>
                                     <segue destination="qTA-8T-fnq" kind="show" identifier="review" id="S5w-3U-1HH"/>
@@ -91,12 +91,19 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Synopsis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWa-zq-2wz">
-                                <rect key="frame" x="279" y="231" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Synopsis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWa-zq-2wz">
+                                <rect key="frame" x="265" y="231" width="69.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ppb-T1-P1g">
+                                <rect key="frame" x="235.5" y="523" width="129" height="30"/>
+                                <state key="normal" title="Show Theatre Map"/>
+                                <connections>
+                                    <segue destination="9V6-2G-6fL" kind="show" identifier="showMap" id="8Rb-CJ-4fE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -116,6 +123,8 @@
                             <constraint firstItem="lYf-29-P3u" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="So1-0Y-1OH"/>
                             <constraint firstItem="GAO-Cl-Wes" firstAttribute="top" secondItem="x1B-5R-eEK" secondAttribute="bottom" constant="12" id="T9Q-hd-coz"/>
                             <constraint firstItem="gbp-HN-MY9" firstAttribute="leading" secondItem="Cfh-xL-LAF" secondAttribute="trailing" constant="5" id="V4M-E7-fpt"/>
+                            <constraint firstItem="Ppb-T1-P1g" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="Wwp-Fp-t4h"/>
+                            <constraint firstItem="x1B-5R-eEK" firstAttribute="top" secondItem="Ppb-T1-P1g" secondAttribute="bottom" constant="5" id="Y4Q-VZ-jmk"/>
                             <constraint firstItem="gbp-HN-MY9" firstAttribute="top" secondItem="Cfh-xL-LAF" secondAttribute="top" id="a0J-6Z-c2w"/>
                             <constraint firstItem="gbp-HN-MY9" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="dhr-zx-dgS"/>
                             <constraint firstItem="gbp-HN-MY9" firstAttribute="bottom" secondItem="Cfh-xL-LAF" secondAttribute="bottom" id="gTw-48-t27"/>
@@ -244,6 +253,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9vN-b3-Wth" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1468" y="129"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="N9m-9i-al5">
+            <objects>
+                <viewController id="9V6-2G-6fL" customClass="MapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="t1p-0i-qdf"/>
+                        <viewControllerLayoutGuide type="bottom" id="2Zh-dp-6eu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JOn-MB-J5h">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="O2M-1l-Dlf">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="O2M-1l-Dlf" secondAttribute="trailing" id="MVh-0r-7Ci"/>
+                            <constraint firstItem="O2M-1l-Dlf" firstAttribute="top" secondItem="t1p-0i-qdf" secondAttribute="bottom" id="Zkw-fH-A6a"/>
+                            <constraint firstItem="2Zh-dp-6eu" firstAttribute="top" secondItem="O2M-1l-Dlf" secondAttribute="bottom" id="l2A-4s-NO6"/>
+                            <constraint firstItem="O2M-1l-Dlf" firstAttribute="leading" secondItem="JOn-MB-J5h" secondAttribute="leading" id="yvF-iB-PjT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="theatreMapView" destination="O2M-1l-Dlf" id="bsc-3c-sqk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vGn-Ag-SEk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1468" y="904"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Nki-YV-4Qg">

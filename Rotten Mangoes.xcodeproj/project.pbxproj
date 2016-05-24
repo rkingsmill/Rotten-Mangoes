@@ -19,6 +19,8 @@
 		5B81B2171CF39F5700BF634B /* ReviewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B81B2161CF39F5700BF634B /* ReviewsViewController.m */; };
 		5B81B21A1CF3A82F00BF634B /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B81B2191CF3A82F00BF634B /* Review.m */; };
 		5B81B21D1CF3AE8D00BF634B /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B81B21C1CF3AE8D00BF634B /* TableViewCell.m */; };
+		5B81B2221CF4BD2000BF634B /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B81B2211CF4BD2000BF634B /* MapViewController.m */; };
+		5B81B2241CF4C09800BF634B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B81B2231CF4C09800BF634B /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,10 @@
 		5B81B2191CF3A82F00BF634B /* Review.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Review.m; sourceTree = "<group>"; };
 		5B81B21B1CF3AE8D00BF634B /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
 		5B81B21C1CF3AE8D00BF634B /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		5B81B2201CF4BD2000BF634B /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		5B81B2211CF4BD2000BF634B /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		5B81B2231CF4C09800BF634B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		5B81B2251CF4C11F00BF634B /* Toronto.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Toronto.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B81B2241CF4C09800BF634B /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +67,7 @@
 		5B81B1E31CF35BB300BF634B = {
 			isa = PBXGroup;
 			children = (
+				5B81B2231CF4C09800BF634B /* MapKit.framework */,
 				5B81B1EE1CF35BB300BF634B /* Rotten Mangoes */,
 				5B81B1ED1CF35BB300BF634B /* Products */,
 			);
@@ -90,8 +98,11 @@
 				5B81B2191CF3A82F00BF634B /* Review.m */,
 				5B81B2151CF39F5700BF634B /* ReviewsViewController.h */,
 				5B81B2161CF39F5700BF634B /* ReviewsViewController.m */,
+				5B81B2251CF4C11F00BF634B /* Toronto.gpx */,
 				5B81B21B1CF3AE8D00BF634B /* TableViewCell.h */,
 				5B81B21C1CF3AE8D00BF634B /* TableViewCell.m */,
+				5B81B2201CF4BD2000BF634B /* MapViewController.h */,
+				5B81B2211CF4BD2000BF634B /* MapViewController.m */,
 				5B81B1FB1CF35BB300BF634B /* Main.storyboard */,
 				5B81B1FE1CF35BB300BF634B /* Assets.xcassets */,
 				5B81B2001CF35BB300BF634B /* LaunchScreen.storyboard */,
@@ -186,6 +197,7 @@
 				5B81B21D1CF3AE8D00BF634B /* TableViewCell.m in Sources */,
 				5B81B2141CF3816F00BF634B /* CustomCollectionViewCell.m in Sources */,
 				5B81B21A1CF3A82F00BF634B /* Review.m in Sources */,
+				5B81B2221CF4BD2000BF634B /* MapViewController.m in Sources */,
 				5B81B1F11CF35BB300BF634B /* main.m in Sources */,
 				5B81B1FA1CF35BB300BF634B /* DetailViewController.m in Sources */,
 			);
@@ -336,6 +348,7 @@
 				5B81B2081CF35BB300BF634B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
