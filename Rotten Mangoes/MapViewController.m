@@ -9,6 +9,7 @@
 #import "MapViewController.h"
 @import MapKit;
 @import CoreLocation;
+#import "Theatre.h"
 
 @interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate>
 
@@ -16,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet MKMapView *theatreMapView;
 @property (assign, nonatomic) BOOL shouldZoomToUserLocation;
 @property MKPointAnnotation *theatrePin;
+@property (strong, nonatomic) NSString *postalCode;
+@property (strong, nonatomic) NSMutableArray *theatres;
 
 @end
 
@@ -40,9 +43,8 @@
         }
     }
     
-
-    // Do any additional setup after loading the view.
-}
+        }
+                                     
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -89,10 +91,11 @@
         [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
             NSLog(@"Reverse Geocode: %@", placemarks);
             CLPlacemark *placemark = placemarks[0];
-            NSString *postalCode = placemark.postalCode;
-            NSLog (@"%@", postalCode);
+            self.postalCode = placemark.postalCode;
+            NSLog (@"%@", self.postalCode);
         }];
         
+        [self getTheatreList];
 //        MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
 //        request.naturalLanguageQuery = @"Starbucks in Toronto";
 //        
@@ -102,9 +105,9 @@
 //                NSLog(@"%@", mapItem.placemark);
 //            }
 //        }];
-    }
+    
 }
-
+}
 #pragma mark - MKMapViewDelegate
 
 //
@@ -136,5 +139,64 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)getTheatreList {
+    
+    NSString *apiString = @"http://lighthouse-movie-showtimes.herokuapp.com/theatres.json";
+    self.postalCode = [self.postalCode stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    NSString *addressString = [@"?address=" stringByAppendingString:self.postalCode];
+    NSString *stringWithAddress = [apiString stringByAppendingString:addressString];
+    self.title = [self.title stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    NSString *movieString = [@"&movie=" stringByAppendingString:self.title];
+    NSString *finalString = [stringWithAddress stringByAppendingString:movieString];
+    
+    NSURL *mapURL = [NSURL URLWithString:finalString];
+    NSURLRequest *apiRequest = [NSURLRequest requestWithURL:mapURL];
+    
+    NSURLSession *sharedSession = [NSURLSession sharedSession];
+    
+    NSURLSessionDataTask *apiTask = [sharedSession dataTaskWithRequest:apiRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        NSLog(@"completed response");
+        
+        if (!error) {
+            NSError *jsonError;
+            
+            NSDictionary *parsedData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+            //
+            if (!jsonError) {
+                NSLog(@"%@", parsedData);
+                
+                NSMutableDictionary *reposDictionary = [NSMutableDictionary dictionary];
+                self.theatres = [NSMutableArray new];
+                for (NSDictionary *theatreDict in parsedData[@"theatres"]) {
+                    Theatre *newTheatre = [[Theatre alloc] init];
+                    newTheatre.lat = theatreDict[@"lat"];
+                    newTheatre.lon = theatreDict[@"lng"];
+                    newTheatre.coordinate = CLLocationCoordinate2DMake([newTheatre.lat doubleValue], [newTheatre.lon doubleValue]);
+
+                    [self.theatres addObject:newTheatre];
+                }
+                                dispatch_async(dispatch_get_main_queue(), ^{
+                                    //[self.theatreMapView reloadData];
+                                });
+                
+                            } else {
+                                NSLog(@"Error parsing JSON: %@", [jsonError localizedDescription]);
+                            }
+                
+                        } else {
+                            NSLog(@"%@", [error localizedDescription]);
+                        }
+                        
+                    }];
+                
+                    NSLog(@"Before resume");
+                    [apiTask resume];
+                    NSLog(@"After resume");
+                //
+                
+                // Do any additional setup after loading the view.
+}
 
 @end

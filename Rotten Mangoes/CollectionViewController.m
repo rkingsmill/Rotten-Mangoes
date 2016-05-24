@@ -27,8 +27,6 @@ static NSString * const reuseIdentifier = @"Cell";
     NSURL *movieURL = [NSURL URLWithString:@"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey=j9fhnct2tp8wu2q9h75kanh9"];
     NSURLRequest *apiRequest = [NSURLRequest requestWithURL:movieURL];
     
-    //NSData *data = [NSData dataWithContentsOfURL:movieURL];
-    
     NSURLSession *sharedSession = [NSURLSession sharedSession];
     
     NSURLSessionDataTask *apiTask = [sharedSession dataTaskWithRequest:apiRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {

@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 #import "ReviewsViewController.h"
 #import "Review.h"
+#import "MapViewController.h"
 
 @interface DetailViewController ()
 
@@ -79,6 +80,12 @@
         
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"showMap"]) {
+        
+        MapViewController *controller = (MapViewController *)[segue destinationViewController];
+        controller.movieTitle = self.movie.title;
     }
 }
 
