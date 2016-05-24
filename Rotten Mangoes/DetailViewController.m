@@ -7,6 +7,8 @@
 //
 
 #import "DetailViewController.h"
+#import "ReviewsViewController.h"
+#import "Review.h"
 
 @interface DetailViewController ()
 
@@ -19,7 +21,6 @@
 - (void)setMovie:(Movie*)movie {
     if (movie != _movie) {
         _movie = movie;
-            
         // Update the view.
         //[self configureView];
     }
@@ -33,6 +34,7 @@
         NSString *year = [self.movie.year stringValue];
         self.detailYearLabel.text = year;
         self.detailRatingslabel.text = self.movie.rating;
+        
         
         NSURL *url = [NSURL URLWithString:self.movie.movieImage];
         
@@ -65,5 +67,20 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"review"]) {
+        //NSIndexPath *indexPath = [self.DetailCollectionView indexPathForCell:sender];
+        NSString *review = self.movie.reviewURL;
+        NSString* finalString = [review stringByAppendingString:@"?apikey=j9fhnct2tp8wu2q9h75kanh9"];
+        NSURL *url = [NSURL URLWithString:finalString];
+        ReviewsViewController *controller = (ReviewsViewController *)[segue destinationViewController];
+        [controller setReviewURL:url];
+        
+        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
+        controller.navigationItem.leftItemsSupplementBackButton = YES;
+    }
+}
+
 
 @end

@@ -29,7 +29,6 @@ static NSString * const reuseIdentifier = @"Cell";
     
     //NSData *data = [NSData dataWithContentsOfURL:movieURL];
     
-    
     NSURLSession *sharedSession = [NSURLSession sharedSession];
     
     NSURLSessionDataTask *apiTask = [sharedSession dataTaskWithRequest:apiRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -53,6 +52,7 @@ static NSString * const reuseIdentifier = @"Cell";
                     newMovie.year = movieDict[@"year"];
                     newMovie.rating = movieDict[@"mpaa_rating"];
                     newMovie.synopsis = movieDict[@"synopsis"];
+                    newMovie.reviewURL = movieDict[@"links"][@"reviews"];
                     newMovie.movieImage = movieDict[@"posters"][@"thumbnail"];
                     
                     [self.movieObjects addObject:newMovie];

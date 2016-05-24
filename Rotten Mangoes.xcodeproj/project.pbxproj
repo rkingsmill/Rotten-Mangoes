@@ -16,6 +16,9 @@
 		5B81B20E1CF369E000BF634B /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B81B20D1CF369E000BF634B /* Movie.m */; };
 		5B81B2111CF37C3500BF634B /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B81B2101CF37C3500BF634B /* CollectionViewController.m */; };
 		5B81B2141CF3816F00BF634B /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B81B2131CF3816F00BF634B /* CustomCollectionViewCell.m */; };
+		5B81B2171CF39F5700BF634B /* ReviewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B81B2161CF39F5700BF634B /* ReviewsViewController.m */; };
+		5B81B21A1CF3A82F00BF634B /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B81B2191CF3A82F00BF634B /* Review.m */; };
+		5B81B21D1CF3AE8D00BF634B /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B81B21C1CF3AE8D00BF634B /* TableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +38,12 @@
 		5B81B2101CF37C3500BF634B /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		5B81B2121CF3816F00BF634B /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
 		5B81B2131CF3816F00BF634B /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
+		5B81B2151CF39F5700BF634B /* ReviewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewsViewController.h; sourceTree = "<group>"; };
+		5B81B2161CF39F5700BF634B /* ReviewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewsViewController.m; sourceTree = "<group>"; };
+		5B81B2181CF3A82F00BF634B /* Review.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Review.h; sourceTree = "<group>"; };
+		5B81B2191CF3A82F00BF634B /* Review.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Review.m; sourceTree = "<group>"; };
+		5B81B21B1CF3AE8D00BF634B /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		5B81B21C1CF3AE8D00BF634B /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +86,12 @@
 				5B81B1F91CF35BB300BF634B /* DetailViewController.m */,
 				5B81B20C1CF369E000BF634B /* Movie.h */,
 				5B81B20D1CF369E000BF634B /* Movie.m */,
+				5B81B2181CF3A82F00BF634B /* Review.h */,
+				5B81B2191CF3A82F00BF634B /* Review.m */,
+				5B81B2151CF39F5700BF634B /* ReviewsViewController.h */,
+				5B81B2161CF39F5700BF634B /* ReviewsViewController.m */,
+				5B81B21B1CF3AE8D00BF634B /* TableViewCell.h */,
+				5B81B21C1CF3AE8D00BF634B /* TableViewCell.m */,
 				5B81B1FB1CF35BB300BF634B /* Main.storyboard */,
 				5B81B1FE1CF35BB300BF634B /* Assets.xcassets */,
 				5B81B2001CF35BB300BF634B /* LaunchScreen.storyboard */,
@@ -166,8 +181,11 @@
 			files = (
 				5B81B1F41CF35BB300BF634B /* AppDelegate.m in Sources */,
 				5B81B2111CF37C3500BF634B /* CollectionViewController.m in Sources */,
+				5B81B2171CF39F5700BF634B /* ReviewsViewController.m in Sources */,
 				5B81B20E1CF369E000BF634B /* Movie.m in Sources */,
+				5B81B21D1CF3AE8D00BF634B /* TableViewCell.m in Sources */,
 				5B81B2141CF3816F00BF634B /* CustomCollectionViewCell.m in Sources */,
+				5B81B21A1CF3A82F00BF634B /* Review.m in Sources */,
 				5B81B1F11CF35BB300BF634B /* main.m in Sources */,
 				5B81B1FA1CF35BB300BF634B /* DetailViewController.m in Sources */,
 			);

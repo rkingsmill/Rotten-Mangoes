@@ -15,5 +15,7 @@
 @property (strong, nonatomic) NSString* rating;
 @property (strong, nonatomic) NSString* synopsis;
 @property (strong, nonatomic) NSString* movieImage;
+//@property (strong, nonatomic) NSArray* review;
+@property (strong, nonatomic) NSString* reviewURL;
 
 @end
