@@ -83,7 +83,6 @@
     }
     
     if ([[segue identifier] isEqualToString:@"showMap"]) {
-        
         MapViewController *controller = (MapViewController *)[segue destinationViewController];
         controller.movieTitle = self.movie.title;
     }

@@ -14,5 +14,7 @@
 @property NSString* lat;
 @property NSString* lon;
 @property (assign, nonatomic) CLLocationCoordinate2D coordinate;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *subtitle;
 
 @end
